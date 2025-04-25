@@ -80,19 +80,25 @@ class App_cubit extends Cubit<App_state>{
 
 
 
-  static Future<List<dynamic>> put_product()async{
+   Future<Product_model> put_product({String?title,dynamic price,String?desc,String?image,String?category,int? id})async{
+           print('prduct id is ${id.toString()}');
+    var data =await Api_helper.PUT(URL:'https://fakestoreapi.com/products/$id',body:{
+      'title': title,
+      'price':price,
+      'description': desc,
+      'image': image,
+      'category': category,
 
-    var data =await Api_helper.PUT(URL:'https://fakestoreapi.com/products/:id');
-
-    for(int i=0;i < data.length;){
-      put_products_list.add(Product_model.FromJson(data[i]));
-      return put_products_list;
-    }
+    });
 
 
 
+    return Product_model.FromJson(data);
 
-    throw(Exception);
+
+
+
+
 
   }
 }

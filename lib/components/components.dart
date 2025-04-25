@@ -6,7 +6,7 @@ Widget Custome_card({ products,BuildContext? context})=>
 
     GestureDetector(
       onTap: (){
-        Navigationito(context,UpdateScreen());
+        Navigationito(context,UpdateScreen(products: products,));
       },
       child: Container(
         width: 220,
@@ -76,7 +76,8 @@ Widget Custome_card({ products,BuildContext? context})=>
       ),
     );
 
-void Navigationito(context,Widget widget)=> Navigator.push(context,MaterialPageRoute(builder: (context)=>widget));
+void Navigationito(context,Widget widget)=>
+    Navigator.push(context,MaterialPageRoute(builder: (context)=>widget));
 
 Widget Text_field_component(
     {

@@ -1,16 +1,17 @@
 class Product_model{
 
  final int? id ;
- final String? title,description,image;
+ final String? title,description,image,category;
  final dynamic rating_model,price;
 
-  Product_model({this.id, this.title, this.price, this.description, this.image,this.rating_model});
+  Product_model({this.id, this.title, this.price, this.description, this.image,this.rating_model,this.category});
   factory Product_model.FromJson(json_data)=> Product_model(id:json_data['id'],
         title: json_data['title'],
         price: json_data['price'],
         description:json_data['description'],
         image: json_data['image'],
-        rating_model: json_data['rating']['rate']
+        category: json_data['category'],
+       // rating_model: json_data['rating']['rate']
     );
 }
 

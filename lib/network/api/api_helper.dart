@@ -62,6 +62,7 @@ class Api_helper{
 
     if(responce.statusCode == 200){
       var data= jsonDecode(responce.body);
+      print(data.toString());
       return data;
     }else{
       throw Exception(jsonDecode(responce.body));
